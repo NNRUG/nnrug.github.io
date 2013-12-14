@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Angular.js</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<script src="./angular.js"></script>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Angular.js</h1>
+		<p>Javascript MVC framework</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<img src="pictures/cover.jpg" alt="">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#Cover img {
+				width:100%;
+				height:auto;
+				margin: 0 auto;
+				}
+		</style>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Angular.js в двух словах</h2>
+		<pre>
+			<code>&lt;input type="text" <mark>ng-model="name"</mark>&gt;</code>
+			<code>&lt;div&gt;Hello, <mark>{{name}}</mark>!&lt;/div&gt;</code>
+			<code class="next">&lt;div <mark>ng-init="name = 'John Doe'"</mark>&gt;&lt;/div&gt;</code>
+		</pre>
+		<div ng-app class="next">
+			<input type="text" ng-model="name">
+			<div>Hello, {{name}}!</div>
+			<div ng-init="name='John Doe'"></div>
+		</div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Почему именно Angular</h2>
+		<ul>
+			<li>Двухстороннее связывание данных</li>
+			<li>Поведение описывается директивами</li>
+			<li>Гибкая система фильтров</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Директивы</h2>
+		<h4>Vanilla.js</h4>
+		<pre>
+			<code>&lt;button id="save"&gt;Сохранить&lt;/button&gt;</code>
+			<code>&lt;script&gt;</code>
+			<code>		if (document.exist) $("#save").show();</code>
+			<code>&lt;/script&gt;</code>
+		</pre>
+
+		<div class="next">
+			<h4>Angular.js</h4>
+			<pre>
+				<code>&lt;button <mark>ng-show="document.exist"</mark>&gt;Сохранить&lt;/button&gt;</code>
+			</pre>
+		</div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Двухстороннее связывание данных</h2>
+		<img src="./pictures/One_Way_Data_Binding.png" style="float:left;width: 50%;"></img>
+
+		<img class="next" src="./pictures/Two_Way_Data_Binding.png" style="float:right;width: 50%;"></img>
+	</div></section>
+
+	<section class="slide"><div>
+		<div ng-app="ExampleA">
+			<div ng-controller="DocumentFormController">
+				<input style="display:block;" ng-model="document.title"></input>
+				<textarea style="display:block;" ng-model="document.content"></textarea>
+				<button style="display:block;" ng-click="save()">Сохранить</button>
+				<article ng-repeat="d in documents">
+					<hr>{{d.title}} : {{d.content}}
+				</article>
+			</div>
+		</div>
+
+		<script>
+			function DocumentFormController ($scope) {
+				$scope.save = function () {
+					$scope.documents.push($scope.document)
+					$scope.document = {title:"", content: ""}
+				};
+				$scope.documents = []
+			}
+			angular.module("ExampleA", []).controller("DocumentFormController", DocumentFormController)
+			angular.bootstrap(document.querySelector("[ng-app=ExampleA]"), ["ExampleA"])
+		</script>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Как работает двухсторонее связывание данных</h2>
+		<pre>
+			<code>DocumentFormController = (<mark>$scope</mark>) -></code>
+			<code>	<mark>$scope.save</mark> = () -> </code>
+			<code>		$scope.documents.push $scope.document</code>
+			<code>		$scope.document = {title:"",content:""}</code>
+			<code>	<mark>$scope.documents</mark> = []</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Как работает двухсторонее связывание данных</h2>
+		<pre>
+			<code>&lt;div ng-controller="DocumentFormController"&gt;</code>
+			<code>	&lt;input <mark>ng-model="document.title"</mark>&gt;&lt;/input&gt;</code>
+			<code>	&lt;textarea <mark>ng-model="document.content"</mark>&gt;&lt;/textarea&gt;</code>
+			<code>	&lt;button <mark>ng-click="save()"</mark>&gt;Сохранить&lt;/button&gt;</code>
+			<code>	&lt;article <mark>ng-repeat="d in documents"</mark>&gt;</code>
+			<code>		&lt;hr&gt;{{d.title}} : {{d.content}}</code>
+			<code>	&lt;/article&gt;</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Фильтры</h2>
+		<p>Фильтры изменяют модель</p>
+		<pre>
+			<code>&lt;input type="text" ng-model="name"&gt;</code>
+			<code>&lt;div&gt;Hello, <mark>{{name | uppercase}}</mark>!&lt;/div&gt;</code>
+			<code>&lt;div ng-init="name = 'John Doe'"&gt;&lt;/div&gt;</code>
+		</pre>
+		<div id="filters">
+			<input type="text" ng-model="name">
+			<div>Hello, {{name | uppercase}}!</div>
+			<div ng-init="name='John Doe'"></div>
+		</div>
+		<script>
+			angular.module("filters", [])
+			angular.bootstrap(document.getElementById("filters"), ["filters"])
+		</script>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Модули</h2>
+		<pre>
+			<code>app = angular.module("app", [])</code>
+			<code class="next">app = angular.module("app", ["ngRoute"])</code>
+			<code class="next">app = angular.module("app", ["masonry"])</code>
+			<code class="next">app = angular.module("app")</code>
+
+			<code class="next">&lt;div ng-app="app"&gt;&lt;/div&gt;</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Контроллеры</h2>
+		<pre>
+			<code>app.contoller "Books", ($scope) -></code>
+			<code>	<mark class="comment"># тут делаем что то</mark></code>
+		</pre>
+		<pre class="next">
+			<code>&lt;div ng-controller="Books"&gt;</code>
+			<code>	Здесь нам доступно $scope контрллера Books</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Роутинг</h2>
+		<pre>
+			<code>app.config ($routeProvider) -> $routeProvider</code>
+			<code>	.when "/books", </code>
+			<code>		controller:"Books" </code>
+			<code>		templateUrl:"partials/books.html" </code>
+			<code>	.when "/books/:id", </code>
+			<code>		controller:"Book" </code>
+			<code>		templateUrl:"partials/book.html" </code>
+			<code>	.otherwise </code>
+			<code>		redirectTo:"/books" </code>
+
+		</pre>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Роутинг</h2>
+		<pre>
+			<code>&lt;div ng-app="app"&gt;</code>
+			<code>	Что то тут</code>
+			<code>	&lt;div <mark>ng-view</mark>&gt;&lt;/div&gt;</code>
+			<code>	И тут</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сервисы</h2>
+		<ul>
+			<li>Service - самый простой тип, по сути является классом</li>
+			<li>Factory - конструирует значение и передает его</li>
+			<li>Provider - доступен для настройки еще до запуска приложения</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Service</h2>
+		<p>Сервис это просто класс</p>
+		<pre>
+			<code>class HelloService</code>
+			<code>	hello: -> "Hello, world"</code>
+			<code>app.service("hello", HelloService)</code>
+			<code>HelloController = (hello) -></code>
+			<code>	<mark class="comment"># hello == new HelloService</mark></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Factory</h2>
+		<p>Фабрика конструирет значение и возвращает его</p>
+		<pre>
+			<code>app.factory "hello", -></code>
+			<code>	{hello: "Hello world"}</code>
+			<code>HelloController = (hello) -></code>
+			<code>	<mark class="comment"># hello == {hello: "Hello world"}</mark></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Provider</h2>
+		<pre>
+			<code>app.provider "hello", class</code>
+			<code>	$get: -> "Hello, #{@name}"</code>
+			<code>	name: "World"</code>
+			<code>	setName: (@name) -></code>
+			<code>app.config (helloProvider) -></code>
+			<code>	helloProvider.setName "Artem"</code>
+			<code>HelloController = (hello) -></code>
+			<code>	<mark class="comment"># hello == "Hello, Artem"</mark></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>gem 'rg'</h2>
+		<ul>
+			<li class="next">Поддержка ресурсов Rails в angular</li>
+			<li class="next">Bower для управления зависимостями front-end</li>
+			<li class="next">Генераторы для angular</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Генераторы</h2>
+		<ul>
+			<li>rg:service</li>
+			<li>rg:resource</li>
+			<li>rg:controller</li>
+			<li>rg:filter</li>
+			<li>rg:directive</li>
+			<li>rg:app</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Bower</h2>
+		<pre>
+			<code>bower install package</code>
+			<code class="next"><mark class="comment">//= require package</mark></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Ресурсы</h2>
+		<pre>
+			<code>DocumentFormController = ($scope, Document) -></code>
+			<code>	$scope.save = () -> </code>
+			<code>		doc = new Document $scope.document</code>
+			<code>		doc.create()</code>
+			<code>		$scope.documents.push doc</code>
+			<code>		$scope.document = {title:"",content:""}</code>
+			<code>	Document.query().then (documents) -></code>
+			<code>		$scope.documents = documents</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Полезные ссылки</h2>
+		<ul>
+			<li><a href="http://angularjs.org/">http://angularjs.org/</a></li>
+			<li><a href="https://github.com/janlelis/rg">https://github.com/janlelis/rg</a></li>
+			<li><a href="http://builtwith.angularjs.org/">http://builtwith.angularjs.org/</a></li>
+			<li><a href="https://github.com/angular/angularjs-batarang">https://github.com/angular/angularjs-batarang</a></li>
+			<li><a href="http://ngmodules.org/">http://ngmodules.org/</a></li>
+		</ul>
+	</div></section>
+
+	<!--
+	Кто использует angular
+	-->
+	
+	
+	
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
