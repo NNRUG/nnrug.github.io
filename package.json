@@ -23,7 +23,6 @@
   "devDependencies": {
     "coffee-script": "^1.7.1",
     "font-awesome": "^4.1.0",
-    "foundation": "^4.2.1-1",
     "gulp": "^3.8.7",
     "gulp-autoprefixer": "0.0.8",
     "gulp-clean": "^0.3.1",

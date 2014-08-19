@@ -1,0 +1,20 @@
+- title: 'DevMeetMeat'
+  date:  '16.08.2014'
+  link: 'https://plus.google.com/events/cdp7ag1lct1cmbl2669ui1cjtfc?authkey=CISJ-OaZq7vi_wE'
+  talks:
+    - title: 'Наряжаем рельсу. Using decorators in Ruby on Rails'
+      link: 'http://slides.kugaevsky.ru/using-decorators-in-ruby-on-rails.html'
+      author: 'Nick Kugaevsky'
+
+
+- title: 'beta 3'
+  date:  '04.07.2014'
+  link: 'https://plus.google.com/events/c1p0a7ufo1stsapbhbq1p66redc?authkey=CKLS_5zfzNGtxgE'
+  talks: []
+
+- title: 'def self.tools'
+  date:  '14.12.2013'
+  link: 'https://plus.google.com/events/cfab8hgu94jh57ttjkehmktl1ss'
+  talks: []
+
+

@@ -1,0 +1,6 @@
+{
+    "name": "nnrug.github.io",
+    "dependencies": {
+       "foundation": "~5.1.0"
+    }
+}

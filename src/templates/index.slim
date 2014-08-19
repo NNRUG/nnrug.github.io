@@ -1,3 +1,8 @@
+ruby:
+  require 'yaml'
+  meetups = YAML.load_file('./src/config/meetups.yml')
+
+
 doctype html
 html prefix="og: http://ogp.me/ns#"
   head
@@ -27,9 +32,11 @@ html prefix="og: http://ogp.me/ns#"
                 i.fa.fa-github-alt.fa-lg>
                 |GitHub
 
-    .row: .small-12.columns
-      h1.text-center Nizhniy Novgorod Ruby User Group
+    .row: .small-12.columns: .text-center
+      h1 Nizhniy Novgorod Ruby User Group
+      h2.subheader Нижегородское сообщество руби разработчиков
 
+    br
     br
 
     .row
@@ -41,3 +48,36 @@ html prefix="og: http://ogp.me/ns#"
         .text-center
           a.social.facebook href="https://www.facebook.com/groups/nnrug"
             i.fa.fa-facebook.fa-5x
+
+    br
+    br
+    br
+
+    section#meetups
+      .row
+        .small-12.medium-7.columns
+          h2 Встречи
+          - meetups.each do |meetup|
+            article
+              header
+                .right: span.muted = meetup['date']
+                h4: a href=meetup['link'] = meetup['title']
+              ul.talks
+                - meetup['talks'].each do |talk|
+                  li
+                    a href=talk['link'] = talk['title']
+                    span< by #{talk['author']}
+
+
+        .small-12.medium-4.medium-offset-1.columns
+          section#news
+            h2 Новости
+            #mc_embed_signup
+              form#mc-embedded-subscribe-form action="//nnrug.us4.list-manage.com/subscribe/post?u=81a7bd8a9b10bb7c04231712d&amp;id=8c472b2bef" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate=true
+
+                .mc-field-group
+                  input#mce-EMAIL.required.email type="email" value="" name="EMAIL" placeholder="myperfect@email.com"
+                  input type="hidden" name="b_81a7bd8a9b10bb7c04231712d_8c472b2bef" tabindex="-1" value=""
+
+                input#mc-embedded-subscribe.button.success.small type="submit" value="Подписаться" name="subscribe"
+
