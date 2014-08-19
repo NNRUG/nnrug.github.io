@@ -3,37 +3,66 @@ $primary-color: #9b1c16
 $facebook-color: #3b5998
 $google-plus-color: #dd4b39
 $muted-color: #aaa
+$dark-glass-color: rgba(0, 0, 0,.7)
+$ruby-glass-color: transparentize(darken($primary-color, 40%), .1)
 
 $header-font-weight: 300
 $subheader-font-weight: 200
+
+$circle-size: 144px
 
 @import "normalize"
 @import "foundation"
 @import "font-awesome"
 
 body
-  padding-top: 60px
+  padding-top: 45px
 
-.social
+.intro-image
+  background-image: url(/assets/intro-header.jpg)
+  background-position: center bottom
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 6rem 0 5rem
+  position: relative
+  border-bottom: 1px solid $dark-glass-color
+
+.dark-glass-panel
+  +panel($dark-glass-color, 6rem 4rem 5rem)
+  position: relative
+
+.top-center
+  position: absolute
+  top: -$circle-size/2
+  left: 50%
+  margin-left: -$circle-size/2
+
+.circle
   border-radius: 50%
   text-align: center
   color: white
   display: inline-block
-  min-height: 144px
-  min-width: 144px
+  height: $circle-size
+  width: $circle-size
   transition: background-color .35s ease-in-out
-  border-width: 3px
+  border-width: 2px
   border-style: solid
   padding-top: 1.9rem
   -webkit-backface-visibility: hidden
+  &.ruby-logo
+    background: transparentize(white, .2)
+    &:hover
+      background: white
+    img
+      max-width: 50%
   &.facebook
-    background: $facebook-color
+    background: transparentize($facebook-color, .2)
     border-color: $facebook-color
     &:hover
       color: $facebook-color
       background: white
   &.google-plus
-    background: $google-plus-color
+    background: transparentize($google-plus-color, .2)
     padding-left: .9rem
     border-color: $google-plus-color
     &:hover
@@ -43,7 +72,14 @@ body
     transition: all .35s ease-in-out
     transform: scale(.7)
   &:hover i
-    transform: scale(1)
+    transform: scale(1) rotateX(360deg)
 
 .muted
   color: $muted-color
+
+#footer
+  background: $topbar-bg-color
+  color: #aaa
+  margin-top: 3rem
+  border-top: 1px solid $dark-glass-color
+  padding: 2rem 0

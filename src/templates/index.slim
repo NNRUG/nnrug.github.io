@@ -14,7 +14,7 @@ html prefix="og: http://ogp.me/ns#"
     meta name="robots" content="all"
     meta content="width=device-width initial-scale=1.0" name="viewport"
 
-    link href="assets/app.css" rel="stylesheet" type="text/css"
+    link href="/assets/app.css" rel="stylesheet" type="text/css"
 
   body
     .contain-to-grid.fixed
@@ -32,22 +32,28 @@ html prefix="og: http://ogp.me/ns#"
                 i.fa.fa-github-alt.fa-lg>
                 |GitHub
 
-    .row: .small-12.columns: .text-center
-      h1 Nizhniy Novgorod Ruby User Group
-      h2.subheader Нижегородское сообщество руби разработчиков
+    header.intro-image
+      .row: .small-12.columns
+        .dark-glass-panel.text-center
+          .top-center.text-center
+            a.circle.ruby-logo href="http://ruby-lang.org"
+              img src="/assets/ruby-logo.svg"
 
-    br
-    br
+          h1 Nizhniy Novgorod Ruby User Group
+          hr
+          h2 Нижегородское сообщество руби разработчиков
+      br
+      br
 
-    .row
-      .small-6.columns
-        .text-center
-          a.social.google-plus href="https://plus.google.com/communities/109804446999128919160"
-            i.fa.fa-google-plus.fa-5x
-      .small-6.columns
-        .text-center
-          a.social.facebook href="https://www.facebook.com/groups/nnrug"
-            i.fa.fa-facebook.fa-5x
+      .row
+        .small-6.columns
+          .text-center
+            a.circle.google-plus href="https://plus.google.com/communities/109804446999128919160"
+              i.fa.fa-google-plus.fa-5x
+        .small-6.columns
+          .text-center
+            a.circle.facebook href="https://www.facebook.com/groups/nnrug"
+              i.fa.fa-facebook.fa-5x
 
     br
     br
@@ -81,3 +87,9 @@ html prefix="og: http://ogp.me/ns#"
 
                 input#mc-embedded-subscribe.button.success.small type="submit" value="Подписаться" name="subscribe"
 
+    footer#footer
+      .row: .small-12.columns
+        .text-center
+          |©
+          a<> href="https://github.com/NNRUG" NNRUG,
+          = "2013 - #{Time.now.year}"
