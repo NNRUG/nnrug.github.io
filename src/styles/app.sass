@@ -1,0 +1,40 @@
+$facebook-color: #3b5998
+$google-plus-color: #dd4b39
+
+@import "variables"
+@import "foundation"
+@import "font-awesome"
+
+body
+  padding-top: 60px
+
+
+.social
+  border-radius: 50%
+  text-align: center
+  color: white
+  display: inline-block
+  min-height: 144px
+  min-width: 144px
+  transition: all .35s ease-in-out
+  border: 3px solid transparent
+  padding-top: 2rem
+  &.facebook
+    background: $facebook-color
+    &:hover
+      color: $facebook-color
+      border-color: $facebook-color
+      background: white
+  &.google-plus
+    background: $google-plus-color
+    padding-left: 1rem
+    &:hover
+      color: $google-plus-color
+      border-color: $google-plus-color
+      background: white
+  i
+    transition: all .35s ease-in-out
+    transform: scale(.7)
+  &:hover i
+    transform: scale(1)
+

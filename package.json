@@ -1,0 +1,43 @@
+{
+  "name": "nnrug.github.io",
+  "version": "0.0.1",
+  "description": "NNRUG community site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NNRUG/nnrug.github.io.git"
+  },
+  "keywords": [
+    "ruby",
+    "community"
+  ],
+  "author": "Nick Kugaevsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NNRUG/nnrug.github.io/issues"
+  },
+  "homepage": "https://github.com/NNRUG/nnrug.github.io",
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "font-awesome": "^4.1.0",
+    "foundation": "^4.2.1-1",
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-clean": "^0.3.1",
+    "gulp-coffee": "^2.1.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-csso": "^0.2.9",
+    "gulp-jshint": "^1.8.4",
+    "gulp-notify": "^1.5.0",
+    "gulp-plumber": "^0.6.4",
+    "gulp-rev": "^1.0.0",
+    "gulp-rev-collector": "^0.1.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-serve": "^0.2.0",
+    "gulp-slim": "0.0.10",
+    "gulp-uglify": "^0.3.1"
+  }
+}

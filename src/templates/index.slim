@@ -1,0 +1,43 @@
+doctype html
+html prefix="og: http://ogp.me/ns#"
+  head
+    title NNRUG Community Site
+
+    meta name="description" content="NNRUG Community Site"
+    meta name="author" content="NNRUG"
+    meta charset="UTF-8"
+    meta name="robots" content="all"
+    meta content="width=device-width initial-scale=1.0" name="viewport"
+
+    link href="assets/app.css" rel="stylesheet" type="text/css"
+
+  body
+    .contain-to-grid.fixed
+      nav.top-bar data-topbar=true
+        ul.title-area
+          li.name
+            h1: a href="/" NNRUG
+          li.toggle-topbar.menu-icon: a href="#"
+            span Menu
+
+        section.top-bar-section
+          ul.right
+            li class="active"
+              a href="https://github.com/NNRUG"
+                i.fa.fa-github-alt.fa-lg>
+                |GitHub
+
+    .row: .small-12.columns
+      h1.text-center Nizhniy Novgorod Ruby User Group
+
+    br
+
+    .row
+      .small-6.columns
+        .text-center
+          a.social.google-plus href="https://plus.google.com/communities/109804446999128919160"
+            i.fa.fa-google-plus.fa-5x
+      .small-6.columns
+        .text-center
+          a.social.facebook href="https://www.facebook.com/groups/nnrug"
+            i.fa.fa-facebook.fa-5x
