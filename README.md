@@ -37,4 +37,6 @@ All source files are located in `src` directory.
 3. Commit
 4. Push
 
+## Adding meetups and talks
 
+You can add meetups and talks to `src/config/meetups.yml` file. It has very obvious format.

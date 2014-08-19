@@ -7,13 +7,12 @@ $muted-color: #aaa
 $header-font-weight: 300
 $subheader-font-weight: 200
 
-// @import "variables"
+@import "normalize"
 @import "foundation"
 @import "font-awesome"
 
 body
   padding-top: 60px
-
 
 .social
   border-radius: 50%
@@ -26,6 +25,7 @@ body
   border-width: 3px
   border-style: solid
   padding-top: 1.9rem
+  -webkit-backface-visibility: hidden
   &.facebook
     background: $facebook-color
     border-color: $facebook-color
