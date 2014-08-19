@@ -1,6 +1,6 @@
 ruby:
-  require 'yaml'
-  meetups = YAML.load_file('./src/config/meetups.yml')
+  require "./src/models/meetup.rb"
+  meetups = Meetup.load
 
 
 doctype html
@@ -60,13 +60,13 @@ html prefix="og: http://ogp.me/ns#"
           - meetups.each do |meetup|
             article
               header
-                .right: span.muted = meetup['date']
-                h4: a href=meetup['link'] = meetup['title']
+                .right: span.muted = meetup.date.to_s
+                h4: a href=meetup.link.to_s = meetup.title
               ul.talks
-                - meetup['talks'].each do |talk|
+                - meetup.talks.each do |talk|
                   li
-                    a href=talk['link'] = talk['title']
-                    span< by #{talk['author']}
+                    a href=talk.link = talk.title
+                    span< by #{talk.author}
 
 
         .small-12.medium-4.medium-offset-1.columns
