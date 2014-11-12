@@ -11,6 +11,9 @@
     - title: 'Arduino Introduction and demo'
       link: 'http://overmind.ws/hardware/arduino/2013/09/05/arduino-music/'
       author: 'Dmitry R'
+    - title: 'Erlang/OTP. Intro'
+      link: 'https://github.com/r3nya/presentation_about_Erlang'
+      author: 'Andrey M.'
       
 
 
@@ -25,6 +28,7 @@
 - title: 'def self.tools'
   date:  '14.12.2013'
   link: 'https://plus.google.com/events/cfab8hgu94jh57ttjkehmktl1ss'
-  talks: []
-
-
+  talks:
+    - title: 'Rails deploy using Ansible'
+      link: 'https://github.com/r3nya/presentation_about_Rails_deploy'
+      author: 'Andrey M.'
