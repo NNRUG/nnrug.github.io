@@ -14,6 +14,8 @@ clean   = require 'gulp-clean'
 rev     = require 'gulp-rev'
 revCollect = require 'gulp-rev-collector'
 
+ignore  = require 'gulp-ignore'
+
 
 paths =
   assets:
@@ -34,6 +36,7 @@ gulp.task 'styles', () ->
   gulp.src paths.assets.styles
   .pipe plumber plumberCfg
   .pipe sass()
+  .pipe ignore '*.map'
   .pipe prefix 'last 2 version'
   .pipe csso()
   .pipe gulp.dest paths.assets.dest
